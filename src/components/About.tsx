@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Watch } from 'lucide-react';
 
 const About = () => {
   return (
