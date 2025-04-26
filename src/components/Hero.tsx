@@ -4,6 +4,13 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 
 const Hero = () => {
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="min-h-screen pt-24 pb-12 vintage-bg relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-8">
@@ -19,10 +26,17 @@ const Hero = () => {
             </p>
             
             <div className="pt-4 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button className="bg-vintage-brown hover:bg-vintage-darkBrown text-white text-lg px-6 py-5">
+              <Button 
+                className="bg-vintage-brown hover:bg-vintage-darkBrown text-white text-lg px-6 py-5"
+                onClick={() => scrollToSection('services')}
+              >
                 Explore Our Services
               </Button>
-              <Button variant="outline" className="border-vintage-brown text-vintage-brown hover:bg-vintage-brown hover:text-white text-lg px-6 py-5">
+              <Button 
+                variant="outline" 
+                className="border-vintage-brown text-vintage-brown hover:bg-vintage-brown hover:text-white text-lg px-6 py-5"
+                onClick={() => scrollToSection('gallery')}
+              >
                 View Gallery <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </div>

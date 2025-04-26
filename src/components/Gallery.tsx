@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ArrowRight, Watch } from 'lucide-react';
 
@@ -8,6 +7,7 @@ const galleryItems = [
     id: 1,
     title: "1940s Pocket Watch",
     description: "Full restoration including movement rebuild and case refinishing.",
+    image: "https://images.unsplash.com/photo-1509048191080-d2984bad6ae5?auto=format&fit=crop&q=80",
     before: "Before restoration",
     after: "After restoration"
   },
@@ -15,6 +15,7 @@ const galleryItems = [
     id: 2,
     title: "Vintage Chronograph",
     description: "Complete overhaul with original parts sourcing and dial restoration.",
+    image: "https://images.unsplash.com/photo-1587836374828-4dbafa94cf0e?auto=format&fit=crop&q=80",
     before: "Before restoration",
     after: "After restoration"
   },
@@ -22,6 +23,7 @@ const galleryItems = [
     id: 3,
     title: "Art Deco Wristwatch",
     description: "Intricate case repair and movement restoration to factory specifications.",
+    image: "https://images.unsplash.com/photo-1539874754764-5a96559165b0?auto=format&fit=crop&q=80",
     before: "Before restoration",
     after: "After restoration"
   }
@@ -45,18 +47,11 @@ const Gallery = () => {
           {galleryItems.map((item) => (
             <div key={item.id} className="vintage-card overflow-hidden group">
               <div className="aspect-square bg-vintage-sepia relative overflow-hidden">
-                <div className="absolute inset-0 flex">
-                  <div className="w-1/2 h-full bg-vintage-darkBrown/10 flex items-center justify-center">
-                    <div className="text-center p-4">
-                      <p className="text-sm text-vintage-brown font-medium">{item.before}</p>
-                    </div>
-                  </div>
-                  <div className="w-1/2 h-full bg-vintage-cream flex items-center justify-center">
-                    <div className="text-center p-4">
-                      <p className="text-sm text-vintage-brown font-medium">{item.after}</p>
-                    </div>
-                  </div>
-                </div>
+                <img 
+                  src={item.image} 
+                  alt={item.title}
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-vintage-darkBrown/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
                   <div className="text-white p-4">
                     <p className="font-serif font-medium">{item.title}</p>
@@ -69,12 +64,6 @@ const Gallery = () => {
               </div>
             </div>
           ))}
-        </div>
-
-        <div className="text-center mt-12">
-          <button className="inline-flex items-center text-vintage-brown hover:text-vintage-darkBrown border-b border-vintage-brown pb-1 transition-colors">
-            View Full Gallery <ArrowRight className="ml-2 h-4 w-4" />
-          </button>
         </div>
       </div>
     </section>
